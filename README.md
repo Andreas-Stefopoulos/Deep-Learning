@@ -63,17 +63,18 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 **The fourth file** [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip) contains all the training and validation information, but we will use the main graphs to visualize, analyse, explain, evaluate and compare our 2 models.
 
 * Firstly, let's see the train and validation of [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb). The metrics used are accuracy, f1 score and loss.
+
 ****Green is the train and gray is validation****
 
 **Accuracy**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124359635-7dac9200-dc2e-11eb-9b7a-38cd55a77693.png)
 
-**f1 score**:
+**F1 Score**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124359680-b187b780-dc2e-11eb-99a8-2f9159cf7283.png)
 
-**loss**:
+**Loss**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124359724-df6cfc00-dc2e-11eb-900f-ab1084145ddc.png)
 

@@ -58,7 +58,14 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 * The main difference between Custom_CNN and mobilnet is that now, we do not need to train the whole model, because it is already trained with the dataset Imagenet, so it is a very good feature extractor! We have to only train the last (Dense layer) with our dataset and set the rest network to trainable=False. That means that it was trained with a large amoutn of data, "learned" how to extract features of images and classify them and now we change the classification step with our own data, without changing the weights in the other layers. This can be observed clearly in the step 35 of our code.
 * After training the last layer to our dataset, which lasted 600 seconds (aprox 10 minutes for 10 epochs, even though 4-5 epochs were enough as we will se later to the performance analysis), we visualize a sample of the train images and their labels as predicted from our network (green color if correct - red if not correct).
 * We then use our network to predict if there is a fire in the [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb) and also used the same technique of "photoshop" as in [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb).
-* Lastly, we use a save and load technique of our model, and as before we could also save only the weights but we saved the whole model.
+* Lastly, we used a save and load technique of our model, and as before we could also save only the weights but we saved the whole model.
+
+**The fourth file** [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip) contains all the training and validation information, but we will use the main graphs to visualize, analyse, explain, evaluate and compare our 2 models.
+
+* Firstly, let's see the train and validation of [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb). The metrics used is accuracy, f1 score and loss.
+**Accuracy**:
+![image](https://user-images.githubusercontent.com/75940880/124359635-7dac9200-dc2e-11eb-9b7a-38cd55a77693.png)
+
 
 
 

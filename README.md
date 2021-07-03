@@ -9,7 +9,26 @@ Overview of the files:
 * [Transfer_Learning.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb) - A Jupyter notebook file where we used [TensorFlow Hub](https://www.tensorflow.org/hub) in order to perform [transfer learning](https://www.tensorflow.org/tutorials/images/transfer_learning).
 * [requirements.txt](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/requirements.txt) - A .txt file with all the virtual environment requirements to run all the above Jupiter notebook files.
 
-**The first file** "Custom_CNN" is a Convolutional Neural Network developed by me and the main idea is the development of a CNN which will be used in on-line free cameras in Greece, in order to identify forest fires. The train procedure of this CNN was performed with data collected from the internet and the main classes are two: Images with forest fires and images with forests not on fire. Furthemore, the optimization of the time of prediction is important, and the train time is one-time action. Train size: with fire-812 photos, without fire-760 photos. Validation size: with fire-190 photos, without fire-190 photos. Default size of photos:250x250. The depiction of the composition of the specific CNN is the following:
+Detailed steps followed and references used for development of the files:
+
+**The first file** [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb), is a list of cameras in greece, which visualize mountains and vilages with green and forests in Greece and is used to test our code but also show an aspect of usage as production code. Inside this file there is a visualization of the cameras, where we take a real-time snapshot in order for us to use it for prediction with our trained models, in an effort to use it to solve a real world problem. The code we used is the library [requests](https://realpython.com/python-requests/), in order to obtain a snapsot of the url and plot the photos in the code with [matplotlib](https://matplotlib.org/).
+
+**The second file** [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb), is a Convolutional Neural Network developed by me and my team in the master and the main idea is the development of a CNN which will be used with [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb), in order to identify forest fires. The most important milestones during the creation of this code, where the following:
+
+* We imported the necessary libraries which we will use. See [requirements.txt](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/requirements.txt) for more info.
+* We constructed a Class for the f1 score metric, with the help of this [article](https://stackoverflow.com/questions/64474463/custom-f1-score-metric-in-tensorflow)
+* We constructed a Class in order to auto-save the best model during our training and then use it but loading the saved weights to the model. Only the weights are saved and the metric we use for the "best model" decision is the "val_loss". Reference for this technique in this [article](https://stackoverflow.com/questions/61630990/tensorflow-callback-how-to-save-best-model-on-the-memory-not-on-the-disk).
+* We set the path and arguments in order to monitor our train and evaluate our model through [tensorboard](https://www.tensorflow.org/tensorboard) and a Class to monitor the training time. We also created an [EarlyStopping](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping) object, but we did not use it due to no hardware or resource limitations.
+* We did the preprocess of our data and used [ImageDataGenerator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator). We kept the original size of our photos in the dataset (250x250) in order to have more accurate training.
+* We began constructing our Custom CNN by firstly setting the input shape to (250,250,3). Then we added the layers, the architecture of which can be seen in the following images:![image](https://user-images.githubusercontent.com/75940880/124357191-eaba2a80-dc22-11eb-9e39-fcecb290eccd.png) ![image](https://user-images.githubusercontent.com/75940880/124357249-366cd400-dc23-11eb-874a-e7f768926bce.png)
+
+* For compiling, we chose
+
+
+
+The train procedure of this CNN was performed with data collected from the internet and the main classes are two: Images with forest fires and images with forests not on fire. Furthemore, the optimization of the time of prediction is important, and the train time is one-time action. Train size: with fire-812 photos, without fire-760 photos. Validation size: with fire-190 photos, without fire-190 photos. Default size of photos:250x250. The depiction of the composition of the specific CNN is the following:
+
+
 
 ![cnn](https://user-images.githubusercontent.com/75940880/123519158-43814480-d6b2-11eb-8b61-1874fefd2272.png)
 

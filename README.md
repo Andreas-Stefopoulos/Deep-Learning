@@ -71,7 +71,7 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 * Firstly, let's see the train and validation of [Custom_CNN model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb). The metrics used are accuracy, f1 score and loss.
 
-# ****Green is the train and gray is validation****
+### ****Green is the train and gray is validation****
 
 ## **Accuracy**:
 
@@ -94,7 +94,7 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 * Secondly, let's see the train and validation of [Transfer_Learning model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb). The metrics used are accuracy, f1 score and loss.
 
-# ****Orange is the train and blue is validation****
+### ****Orange is the train and blue is validation****
 
 ## **Accuracy**:
 

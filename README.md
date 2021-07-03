@@ -113,7 +113,10 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 * **F1 Score** is a reliable metric and as we can see in our model, the one of the epoch 10, has train f1 score 98.87% and validation of 98.68%.
 * **Loss** is the metric which we chose to select our "best model" (validation loss) and is the minimun on epoch 10 with values on train 0.01084 and validation 0.05148.
 
-**A result during inspecting both of the train-val data, we may clearly see that the mobilenet is considerably superior in comparison with the CNN created by us. This can be seen while plotting both train-val data clearly**
+**A result during inspecting both of the train-val data, we may clearly see that the mobilenet is considerably superior in comparison with the CNN created by us. This can be seen while plotting both train-validation data clearly**
+
+### ****Green is the train and gray is validation Custom CNN****
+### ****Orange is the train and blue is validation for mobilenet****
 
 ![image](https://user-images.githubusercontent.com/75940880/124360566-3a085700-dc33-11eb-9230-e5ec58dab5c2.png)
 

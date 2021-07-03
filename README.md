@@ -56,6 +56,13 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 * We set the path and arguments in order to monitor our train and evaluate our model through [tensorboard](https://www.tensorflow.org/tensorboard) and a Class to monitor the training time. We also created an [EarlyStopping](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping) object, but we did not use it due to no hardware or resource limitations.
 * We did the preprocess of our data and used [ImageDataGenerator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator). We changed the size of the images to 224x224 as stated in the documentation of mobilenet.
 * The main difference between Custom_CNN and mobilnet is that now, we do not need to train the whole model, because it is already trained with the dataset Imagenet, so it is a very good feature extractor! We have to only train the last (Dense layer) with our dataset and set the rest network to trainable=False. That means that it was trained with a large amoutn of data, "learned" how to extract features of images and classify them and now we change the classification step with our own data, without changing the weights in the other layers. This can be observed clearly in the step 35 of our code.
+* Architecture of the model:
+
+![image](https://user-images.githubusercontent.com/75940880/124360776-4b059800-dc34-11eb-85ed-a45d670868d5.png)
+
+![image](https://user-images.githubusercontent.com/75940880/124360768-3b864f00-dc34-11eb-8066-6ad5f3119749.png)
+
+
 * After training the last layer to our dataset, which lasted 600 seconds (aprox 10 minutes for 10 epochs), we visualized a sample of the train images and their labels as predicted from our network (green color if correct - red if not correct).
 * We then use our network to predict if there is a fire in the [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb) and also used the same technique of "photoshop" as in [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb).
 * Lastly, we used a save and load technique of our model, and as before we could also save only the weights but we saved the whole model.

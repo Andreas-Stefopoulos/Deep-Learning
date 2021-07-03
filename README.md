@@ -46,7 +46,7 @@ Detailed steps followed and references used for development of the files:
 
 **The third file** [Dataset.rar](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Dataset.rar), is the datase we created with photos from the internet and size of (250x250). We tried to keep a pattern and only select photos with forests in order to have better results.
 
-_We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip) file last, in order to analyze the performance of both of the models, compare them and analyse the results after having presented bot of our models._
+_We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip) file last, in order to analyze the performance of both of the models, compare them and analyse the results after having presented both of our models._
 
 **The fifth file** [Transfer_Learning.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb), is a Convolutional Neural Network that uses the tensorflow API to download the mobilenet_v2 version 4. Further documentation regarding mobilenet: [TensorFlow Hub](https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/4), [Review of mobilenet structure](https://towardsdatascience.com/review-mobilenetv2-light-weight-model-image-classification-8febb490e61c). The main idea to this file are same as the [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb), but with a few differences in the approach in the code. The most important milestones during the creation of this code, where the following:
 
@@ -62,7 +62,7 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 **The fourth file** [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip) contains all the training and validation information, but we will use the main graphs to visualize, analyse, explain, evaluate and compare our 2 models.
 
-* Firstly, let's see the train and validation of [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb). The metrics used are accuracy, f1 score and loss.
+* Firstly, let's see the train and validation of [Custom_CNN model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb). The metrics used are accuracy, f1 score and loss.
 
 ****Green is the train and gray is validation****
 
@@ -78,20 +78,28 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 ![image](https://user-images.githubusercontent.com/75940880/124359724-df6cfc00-dc2e-11eb-900f-ab1084145ddc.png)
 
-**Comments regarding [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb) performance:**
+**Comments regarding [Custom_CNN model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb) performance:**
 * **Accuracy** is a metric to measure the performance of our model, but not a reliable one. Without analysing in detail the accuracy, we simply state that the model we selected and use, the one of the epoch 12, has train accuracy 98.75% and validation accuracy of 92.89%.
 * **F1 Score** is a reliable metric and as we can see in our model, the one of the epoch 12, has train f1 score 98.75% and validation of 93.09%.
 * **Loss** is the metric which we chose to select our "best model" (validation loss) and is the minimun on epoch 12 with values on train 0.044 and validation 0.1819.
 
 **A result during inspecting the data of train and validation is that after the epoch 12, the model began to overfit to the train data. When we used BatchNormalization, the model did not overfit but in every epoch it remain in the final values in all metrics. The loss of this state while using BatchNormalization was 0.3230 and is the reason why we removed it from our code after experimenting in different positions between the layers.**
 
+* Secondly, let's see the train and validation of [Transfer_Learning model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb). The metrics used are accuracy, f1 score and loss.
 
+****Orange is the train and blue is validation****
 
+**Accuracy**:
 
+![image](https://user-images.githubusercontent.com/75940880/124360208-396ec100-dc31-11eb-85e7-e73ced694a7a.png)
 
+**F1 Score**:
 
+![image](https://user-images.githubusercontent.com/75940880/124360245-61f6bb00-dc31-11eb-97c1-42d6e0b70701.png)
 
+**Loss**:
 
+![image](https://user-images.githubusercontent.com/75940880/124360268-79ce3f00-dc31-11eb-80e8-632a535ca406.png)
 
 
 

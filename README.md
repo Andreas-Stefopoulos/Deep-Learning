@@ -21,7 +21,9 @@ Detailed steps followed and references used for development of the files:
 * We set the path and arguments in order to monitor our train and evaluate our model through [tensorboard](https://www.tensorflow.org/tensorboard) and a Class to monitor the training time. We also created an [EarlyStopping](https://www.tensorflow.org/api_docs/python/tf/keras/callbacks/EarlyStopping) object, but we did not use it due to no hardware or resource limitations.
 * We did the preprocess of our data and used [ImageDataGenerator](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator). We kept the original size of our photos in the dataset (250x250) in order to have more accurate training.
 * We began constructing our Custom CNN by firstly setting the input shape to (250,250,3). Then we added the layers, the architecture of which can be seen in the following images:  
+
 ![image](https://user-images.githubusercontent.com/75940880/124357191-eaba2a80-dc22-11eb-9e39-fcecb290eccd.png) 
+
 ![image](https://user-images.githubusercontent.com/75940880/124357249-366cd400-dc23-11eb-874a-e7f768926bce.png)
 
 * For compiling, we chose

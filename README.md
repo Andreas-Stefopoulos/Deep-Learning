@@ -66,15 +66,15 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 ****Green is the train and gray is validation****
 
-**Accuracy**:
+## **Accuracy**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124359635-7dac9200-dc2e-11eb-9b7a-38cd55a77693.png)
 
-**F1 Score**:
+## **F1 Score**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124359680-b187b780-dc2e-11eb-99a8-2f9159cf7283.png)
 
-**Loss**:
+## **Loss**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124359724-df6cfc00-dc2e-11eb-900f-ab1084145ddc.png)
 
@@ -89,15 +89,15 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 ****Orange is the train and blue is validation****
 
-**Accuracy**:
+## **Accuracy**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124360208-396ec100-dc31-11eb-85e7-e73ced694a7a.png)
 
-**F1 Score**:
+## **F1 Score**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124360245-61f6bb00-dc31-11eb-97c1-42d6e0b70701.png)
 
-**Loss**:
+## **Loss**:
 
 ![image](https://user-images.githubusercontent.com/75940880/124360268-79ce3f00-dc31-11eb-80e8-632a535ca406.png)
 

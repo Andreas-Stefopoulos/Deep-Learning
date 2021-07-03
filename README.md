@@ -26,7 +26,17 @@ Detailed steps followed and references used for development of the files:
 
 ![image](https://user-images.githubusercontent.com/75940880/124357249-366cd400-dc23-11eb-874a-e7f768926bce.png)
 
-* For compiling, we chose
+* The hyperparameters for our 4 Convolution layers are the same and the following:
+       filters = 64,
+       kernel_size = 3, 
+       activation='relu',
+       input_shape=input_shape (250,250,3)
+* The MaxPooling hyper parameters are the following: pool_size=(2, 2), strides=2, padding='valid'. We chose stride of 2 in order to avoid overfitting and cocluded to this value through our experiments.
+* We chose to add a dropout layer with value 20% due to overfitting in our experiments.
+* The last layers are the Flatten (fully connected) layer and the Dense of 1 neuron where we classify our output to "fire" or "no fire". 
+* Our compiling hyperparameters are loss='binary_crossentropy',optimizer = '[adam](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam)',metrics=['accuracy',F1_Score()]
+* We set the fit (train) of the model and added to our callbacks the tensorboard, the time monitor and the auto-save of the best weights.
+* After training
 
 
 

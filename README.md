@@ -36,7 +36,7 @@ Detailed steps followed and references used for development of the files:
 * The last layers are the Flatten (fully connected) layer and the Dense of 1 neuron where we classify our output to "fire" or "no fire". 
 * Our compiling hyperparameters are loss='binary_crossentropy',optimizer = '[adam](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam)',metrics=['accuracy',F1_Score()]
 * We set the fit (train) of the model and added to our callbacks the tensorboard, the time monitor and the auto-save of the best weights. The train procedure of this CNN was performed with [data](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Dataset.rar) collected from the internet and the main classes are two: Images with forest fires and images with forests not on fire. Furthemore, the optimization of the time of prediction is important, and the train time is one-time action. Train size: with fire-760 photos, without fire-760 photos. Validation size: with fire-190 photos, without fire-190 photos. Default size of photos:250x250.
-* After the training, which lasted 8000 seconds (aprox 2,22 hours) we began the preprocess of the [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb) in order to be eligible for our network. **!Note: we could stop at epoch 12 which is the model we selected in the end an the training time was 2200 seconds (aprox 36.6 minutes), but for experimental reasons we set 50 epochs!** For every url we provided, we predict and print real-time if there was detected a fire or not. Also due to possible issues of connection to some cameras, we also print the number of cameras we could not connect to. If there is a fire detected, the url is also printed, in order for the user to examine further.
+* After the training, which lasted 8000 seconds (aprox 2,22 hours) we began the preprocess of the [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb) in order to be eligible for our network. **!Note: we could stop at epoch 13 which is the model we selected in the end an the training time was 2200 seconds (aprox 36.6 minutes), but for experimental reasons we set 50 epochs!** For every url we provided, we predict and print real-time if there was detected a fire or not. Also due to possible issues of connection to some cameras, we also print the number of cameras we could not connect to. If there is a fire detected, the url is also printed, in order for the user to examine further.
 * In an attempt to provide an explainability of our network, we chose a no-fire photo and the neurons activated in every layer. We can observe this "black box" and why it chose to predict "no fire".
 * Continuing our testing, we tried to "photoshop" a fire inside a "no-fire" url. Thankfully, we had no urls with fire, so we chose the last of the list. With python and the library [Pillow](https://pillow.readthedocs.io/en/stable/), we added the photo of the [url](https://wallpaperaccess.com/full/1817829.jpg) (after preprocessing it) and used it to predict what would the output be in a possible fire situation. We printed the output and the photo used for predicting (250x250).
 * The output was "fire" but we also wanted to visualize the "why fire?". As before we visualized the activation of the neurons in each layer and we can observe that our model has distincted the fire and not any other pattern in the photo provided!
@@ -64,7 +64,7 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 * Firstly, let's see the train and validation of [Custom_CNN model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb). The metrics used are accuracy, f1 score and loss.
 
-****Green is the train and gray is validation****
+# ****Green is the train and gray is validation****
 
 ## **Accuracy**:
 
@@ -79,15 +79,15 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 ![image](https://user-images.githubusercontent.com/75940880/124359724-df6cfc00-dc2e-11eb-900f-ab1084145ddc.png)
 
 **Comments regarding [Custom_CNN model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb) performance:**
-* **Accuracy** is a metric to measure the performance of our model, but not a reliable one. Without analysing in detail the accuracy, we simply state that the model we selected and use, the one of the epoch 12, has train accuracy 98.75% and validation accuracy of 92.89%.
-* **F1 Score** is a reliable metric and as we can see in our model, the one of the epoch 12, has train f1 score 98.75% and validation of 93.09%.
-* **Loss** is the metric which we chose to select our "best model" (validation loss) and is the minimun on epoch 12 with values on train 0.044 and validation 0.1819.
+* **Accuracy** is a metric to measure the performance of our model, but not a reliable one. Without analysing in detail the accuracy, we simply state that the model we selected and use, the one of the epoch 13, has train accuracy 98.75% and validation accuracy of 92.89%.
+* **F1 Score** is a reliable metric and as we can see in our model, the one of the epoch 13, has train f1 score 98.75% and validation of 93.09%.
+* **Loss** is the metric which we chose to select our "best model" (validation loss) and is the minimun on epoch 13 with values on train 0.044 and validation 0.1819.
 
-**A result during inspecting the data of train and validation is that after the epoch 12, the model began to overfit to the train data. When we used BatchNormalization, the model did not overfit but in every epoch it remain in the final values in all metrics. The loss of this state while using BatchNormalization was 0.3230 and is the reason why we removed it from our code after experimenting in different positions between the layers.**
+**A result during inspecting the data of train and validation is that after the epoch 13, the model began to overfit to the train data. When we used BatchNormalization, the model did not overfit but in every epoch it remain in the final values in all metrics. The loss of this state while using BatchNormalization was 0.3230 and is the reason why we removed it from our code after experimenting in different positions between the layers.**
 
 * Secondly, let's see the train and validation of [Transfer_Learning model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb). The metrics used are accuracy, f1 score and loss.
 
-****Orange is the train and blue is validation****
+# ****Orange is the train and blue is validation****
 
 ## **Accuracy**:
 
@@ -101,15 +101,13 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 ![image](https://user-images.githubusercontent.com/75940880/124360268-79ce3f00-dc31-11eb-80e8-632a535ca406.png)
 
+**Comments regarding [Transfer_Learning model](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb) performance:**
+* **Accuracy** is a metric to measure the performance of our model, but not a reliable one. Without analysing in detail the accuracy, we simply state that the model we selected and use, the one of the epoch 10, has train accuracy 98.87% and validation accuracy of 98.68%.
+* **F1 Score** is a reliable metric and as we can see in our model, the one of the epoch 10, has train f1 score 98.87% and validation of 98.68%.
+* **Loss** is the metric which we chose to select our "best model" (validation loss) and is the minimun on epoch 10 with values on train 0.01084 and validation 0.05148.
 
+**A result during inspecting both of the train-val data, we may clearly see that the mobilenet is considerably superior in comparison with the CNN created by us. This can be seen while plotting both train-val data clearly**
 
+![image](https://user-images.githubusercontent.com/75940880/124360566-3a085700-dc33-11eb-9230-e5ec58dab5c2.png)
 
-
-
-
-
-
-
-
-
-
+The result of all the above is that even though our custom network is not as good as the mobilenet, it is reliable enough to recognize a fire in a forest. The main difference is that our custom network might not classify a small fire in an image as "fire", in contrast with mobilenet which can classify smaller fires (we came to this result during experimentation).

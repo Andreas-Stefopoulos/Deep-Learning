@@ -31,27 +31,19 @@ Detailed steps followed and references used for development of the files:
        kernel_size = 3, 
        activation='relu',
        input_shape=input_shape (250,250,3)
-* The MaxPooling hyper parameters are the following: pool_size=(2, 2), strides=2, padding='valid'. We chose stride of 2 in order to avoid overfitting and cocluded to this value through our experiments.
+* The MaxPooling hyper parameters are the following: pool_size=(2, 2), strides=2, [padding](https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPool2D)='valid'. We chose stride of 2 in order to avoid overfitting and cocluded to this value through our experiments. We also set the padding = "valid" because is a dynamic solution and according to documentation **"The resulting output, when using the "valid" padding option, has a spatial shape (number of rows or columns) of: output_shape = math.floor((input_shape - pool_size) / strides) + 1 (when input_shape >= pool_size)"**.
 * We chose to add a dropout layer with value 20% due to overfitting in our experiments.
 * The last layers are the Flatten (fully connected) layer and the Dense of 1 neuron where we classify our output to "fire" or "no fire". 
 * Our compiling hyperparameters are loss='binary_crossentropy',optimizer = '[adam](https://www.tensorflow.org/api_docs/python/tf/keras/optimizers/Adam)',metrics=['accuracy',F1_Score()]
-* We set the fit (train) of the model and added to our callbacks the tensorboard, the time monitor and the auto-save of the best weights.
-* After training
+* We set the fit (train) of the model and added to our callbacks the tensorboard, the time monitor and the auto-save of the best weights. The train procedure of this CNN was performed with [data](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Dataset.rar) collected from the internet and the main classes are two: Images with forest fires and images with forests not on fire. Furthemore, the optimization of the time of prediction is important, and the train time is one-time action. Train size: with fire-760 photos, without fire-760 photos. Validation size: with fire-190 photos, without fire-190 photos. Default size of photos:250x250.
+* After training, which lasted 8000 seconds (aprox 2,22 hours) we began the preprocess of the [Cameras.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb) in order to be eligible for our network. For every url we provided, we predict and print real-time if there was detected a fire or not. Also due to possible issues of connection to some cameras, we also print the number of cameras we could not connect to. If there is a fire detected, the url is also printed, in order for the user to examine further.
+* In an attempt to provide an explainability of our network, we chose a no-fire photo and the neurons activated in every layer. We can observe this "black box" and why it chose to predict "no fire".
+* Continuing our testing, we tried to "photoshop" a fire inside a "no-fire" url. Thankfully, we had no urls with fire, so we chose the last of the list. With python and the library [Pillow](https://pillow.readthedocs.io/en/stable/), we added the photo of the [url](https://wallpaperaccess.com/full/1817829.jpg) (after preprocessing it) and used it to predict what would the output be in a possible fire situation. We printed the output and the photo used for predicting (250x250).
+* The output was "fire" but we also wanted to visualize the "why fire?". As before we visualized the activation of the neurons in each layer and we can observe that our model has distincted the fire and not any other pattern in the photo provided!
+* Lastly we used a technique to save and load the model. We may also save only the weights of the model.
+* A last note is that we also used BatchNormalization after the activation function as stated [here](https://www.deeplearningbook.org/contents/optimization.html) in chapter 8.7.1 in page 313, but our scores were worse than before, so we procceded without this technique.
+* ****Detailed accuracy metrics will be visualized when explaining the file [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip)****
 
-
-
-The train procedure of this CNN was performed with data collected from the internet and the main classes are two: Images with forest fires and images with forests not on fire. Furthemore, the optimization of the time of prediction is important, and the train time is one-time action. Train size: with fire-812 photos, without fire-760 photos. Validation size: with fire-190 photos, without fire-190 photos. Default size of photos:250x250. The depiction of the composition of the specific CNN is the following:
-
-
-
-![cnn](https://user-images.githubusercontent.com/75940880/123519158-43814480-d6b2-11eb-8b61-1874fefd2272.png)
-
-
-![cnn2](https://user-images.githubusercontent.com/75940880/123519380-94456d00-d6b3-11eb-9521-1e4742f9cf91.PNG)
-
-
-We can observe that the input size of photos is 250x250x3 in order to maintain the maximun size of the image. During experimentation, different stride, batch size, number of neurons and hyperparameters values were used, finalizing the model with the specs provided. 
-More detailed information about the CNN is provided through the tensorboard. In this repo you may find the files of training and validation, having as main overview graphs the following:
 
 
 **The second file** "Transfer_Learning" is a Convolutional Neural Network that uses the tensorflow API to download the mobilenet_v2 version 4 headless and we set the Dense layer the only trainable layer with the classes of the data. In our case the classes are fire and no fire and the CNN will be trained on our data only at the level of the Dense layer. That means that it was trained with a large amoutn of data, "learned" how to extract features of images and classify them and now we change the classification step with our own data, without changing the weights in the other layers. Further documentation regarding mobilenet: [TensorFlow Hub](https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/4), [Review of mobilenet structure](https://towardsdatascience.com/review-mobilenetv2-light-weight-model-image-classification-8febb490e61c)

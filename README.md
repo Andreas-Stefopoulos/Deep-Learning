@@ -78,3 +78,30 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 
 ![image](https://user-images.githubusercontent.com/75940880/124359724-df6cfc00-dc2e-11eb-900f-ab1084145ddc.png)
 
+**Comments regarding [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb) performance:**
+* **Accuracy** is a metric to measure the performance of our model, but not a reliable one. Without analysing in detail the accuracy, we simply state that the model we selected and use, the one of the epoch 12, has train accuracy 98.75% and validation accuracy of 92.89%.
+* **F1 Score** is a reliable metric and as we can see in our model, the one of the epoch 12, has train f1 score 98.75% and validation of 93.09%.
+* **Loss** is the metric which we chose to select our "best model" (validation loss) and is the minimun on epoch 12 with values on train 0.044 and validation 0.1819.
+
+**A result during inspecting the data of train and validation is that after the epoch 12, the model began to overfit to the train data. When we used BatchNormalization, the model did not overfit but in every epoch it remain in the final values in all metrics. The loss of this state while using BatchNormalization was 0.3230 and is the reason why we removed it from our code after experimenting in different positions between the layers.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

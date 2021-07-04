@@ -8,6 +8,7 @@ Overview of the files:
 * [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Tensorboard_logs.zip) - A .zip file which contains the [tensorboard](https://www.tensorflow.org/tensorboard) files of the training and validation of both [Custom_CNN.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb) and [Transfer_Learning](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb) models.
 * [Transfer_Learning.ipynb](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb) - A Jupyter notebook file where we used [TensorFlow Hub](https://www.tensorflow.org/hub) in order to perform [transfer learning](https://www.tensorflow.org/tutorials/images/transfer_learning).
 * [requirements.txt](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/requirements.txt) - A .txt file with all the virtual environment requirements to run all the above Jupiter notebook files.
+* [Deep Learning Fundamentals Report (in Greek)](https://github.com/Andreas-Stefopoulos/Deep-Learning/blob/main/Deep%20Learning%20Fundamentals%20Report%20(in%20Greek).pdf) - A PDF report, which we created through our research on developing our models. It consists of fundamental information regarding Deep Learning and is written in Greek.
 
 Detailed steps followed and references used for development of the files:
 

@@ -121,3 +121,5 @@ _We will explain [Tensorboard_logs.zip](https://github.com/Andreas-Stefopoulos/D
 ![image](https://user-images.githubusercontent.com/75940880/124360566-3a085700-dc33-11eb-9230-e5ec58dab5c2.png)
 
 The result of all the above is that even though our custom network is not as good as the mobilenet, it is reliable enough to recognize a fire in a forest. The main difference is that our custom network might not classify a small fire in an image as "fire", in contrast with mobilenet which can classify smaller fires (we came to this result during experimentation).
+
+nbviewer links: [Custom CNN](https://nbviewer.jupyter.org/github/Andreas-Stefopoulos/Deep-Learning/blob/main/Custom_CNN.ipynb), [Transfer Learning](https://nbviewer.jupyter.org/github/Andreas-Stefopoulos/Deep-Learning/blob/main/Transfer_Learning.ipynb), [Cameras](https://nbviewer.jupyter.org/github/Andreas-Stefopoulos/Deep-Learning/blob/main/Cameras.ipynb)
